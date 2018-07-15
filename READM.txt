@@ -49,3 +49,28 @@ APP_LOCALE=en
 
 Primeiro apos criar seus .env vamos iniciar a criação do container de database
 # docker run --name snipe-mysql --env-file=.env --mount source=snipesql-vol,target=/var/lib/mysql -d -P mysql:5.6
+
+Comece seu contêiner Snipe-IT
+Primeiro, precisamos gerar uma chave de aplicativo. Se você já tiver um contêiner Snipe-IT em execução, anote o APP_KEY. Nas versões mais antigas do Snipe-IT, ele era armazenado em app/config/production/app.php.
+
+Caso contrário, você pode facilmente gerar um novo, basta executar o contêiner:
+# docker run --rm snipe/snipe-it
+
+A saída deve se parecer com:
+Please re-run this container with an environment variable $APP_KEY
+An example APP_KEY you could use is: 
+base64:D5oGA+zhFSVA3VwuoZoQ21RAcwBtJv/RGiqOcZ7BUvI=
+
+Adicione isso APP_KEYao seu arquivo env docker (deixamos um espaço reservado para ele no seu arquivo inicial do Docker, acima). Certifique-se de incluir o base64:prefixo se for dado! Se você não estiver usando um arquivo env, será necessário passar a APP_KEYvariável de ambiente como para o contêiner docker.
+
+Inicie o seu contêiner Snipe-IT:
+
+Se você puxou a imagem com tag de número de versão exata do que você precisa aplicar aqui também, é claro.
+
+Comece com a versão mais recente:
+
+docker run -d -p YOUR_PORT_NUMBER:80 --name="snipeit" --link snipe-mysql:mysql --env-file=my_env_file --mount source=snipe-vol,dst=/var/lib/snipeit snipe/snipe-it
+
+
+
+
