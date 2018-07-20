@@ -3,7 +3,7 @@ version: "3.3"
 services:
     sagzweb:
         image: snipe/snipe-it
-        container_name: sagz-web
+        container_name: sagzwebPROD
         hostname: sagzweb
         restart: always
         environment:
@@ -23,14 +23,18 @@ services:
             - APP_EN=production
             - APP_DEBUG=false
             - APP_URL=127.0.0.1:8080
+            - APP_LOCALE=pt 
+            - APP_TIMEZONE=America/Sao_Paulo
             - APP_KEY=base64:1/t3C1akUvdu8Iat+1tGVLfdXY1Sjn5zpc4nhPKxAQ8=
         links:
             - sagzdb
         ports:
             - "8080:80"
+        volumes:
+            - /var/lib/docker/volumes/sagp-web-vol/:/var/lib/snipeit
     sagzdb:
         image: mysql:5.6
-        container_name: sagz-db
+        container_name: sagzdbPROD
         hostname: sagzdb
         restart: always
         environment:
@@ -51,5 +55,5 @@ services:
             - MYSQL_PASSWORD=grupozap
         ports:
             - "32769:3306" 
-#        volumes:
-#            - /var/lib/docker/volumes/sagpdatabase-vol:/var/lib/mysql
+        volumes:
+            - /var/lib/docker/volumes/saggpdatabase-vol/:/var/lib/mysql
