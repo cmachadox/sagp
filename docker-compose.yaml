@@ -22,14 +22,14 @@ services:
             - MYSQL_PASSWORD=grupozap
             - APP_EN=production
             - APP_DEBUG=false
-            - APP_URL=127.0.0.1:8080
+            - APP_URL=127.0.0.1:80
             - APP_LOCALE=pt 
             - APP_TIMEZONE=America/Sao_Paulo
             - APP_KEY=base64:1/t3C1akUvdu8Iat+1tGVLfdXY1Sjn5zpc4nhPKxAQ8=
         links:
             - sagzdb
         ports:
-            - "8080:80"
+            - "80:80"
         volumes:
             - /var/lib/docker/volumes/sagp-web-vol/:/var/lib/snipeit
     sagzdb:
