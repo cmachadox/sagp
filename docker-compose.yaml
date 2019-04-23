@@ -9,17 +9,17 @@ services:
         environment:
             - MAIL_PORT_587_TCP_ADDR=smtp.gmail.com
             - MAIL_PORT_587_TCP_PORT=587
-            - MAIL_ENV_FROM_ADDR=clemente.neto@grupozap.com
-            - MAIL_ENV_FROM_NAME="Sistema de Inventário GrupoZAP"
+            - MAIL_ENV_FROM_ADDR=clemente.neto@
+            - MAIL_ENV_FROM_NAME="Sistema de Inventário"
             - MAIL_ENV_ENCRYPTION=tcp
-            - MAIL_ENV_USERNAME=clemente.neto@grupozap.com
+            - MAIL_ENV_USERNAME=clemente.neto@
             - MAIL_ENV_PASSWORD=password
             - DB_CONNECTION=mysql
             - DB_HOST=sagzdb
             - DB_DATABASE=snipeit
             - MYSQL_DATABASE=snipeit
             - MYSQL_USER=snipeit
-            - MYSQL_PASSWORD=grupozap
+            - MYSQL_PASSWORD=password
             - APP_EN=production
             - APP_DEBUG=false
             - APP_URL=127.0.0.1:80
@@ -40,19 +40,19 @@ services:
         environment:
             - MAIL_PORT_587_TCP_ADDR=smtp.gmail.com
             - MAIL_PORT_587_TCP_PORT=587
-            - MAIL_ENV_FROM_ADDR=clemente.neto@grupozap.com
-            - MAIL_ENV_FROM_NAME="Sistema de Inventário GrupoZAP"
+            - MAIL_ENV_FROM_ADDR=clemente.neto@
+            - MAIL_ENV_FROM_NAME="Sistema de Inventário"
             - MAIL_ENV_ENCRYPTION=tcp
-            - MAIL_ENV_USERNAME=clemente.neto@grupozap.com
+            - MAIL_ENV_USERNAME=clemente.neto@
             - MAIL_ENV_PASSWORD=password
-            - MYSQL_ROOT_PASSWORD=grupozap
+            - MYSQL_ROOT_PASSWORD=password
             - MYSQL_DATABASE=snipeit
             - MYSQL_USER=snipeit
             - APP_EN=production
             - APP_DEBUG=yes
             - APP_URL=127.0.0.1:8080
             - APP_KEY=base64:1/t3C1akUvdu8Iat+1tGVLfdXY1Sjn5zpc4nhPKxAQ8=
-            - MYSQL_PASSWORD=grupozap
+            - MYSQL_PASSWORD=password
         ports:
             - "32769:3306" 
         volumes:
