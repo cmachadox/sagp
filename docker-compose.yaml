@@ -3,16 +3,16 @@ version: "3.3"
 services:
     sagzweb:
         image: snipe/snipe-it
-        container_name: sagzwebPROD
-        hostname: sagzweb
+        container_name: tuxwebPROD
+        hostname: tuxweb
         restart: always
         environment:
             - MAIL_PORT_587_TCP_ADDR=smtp.gmail.com
             - MAIL_PORT_587_TCP_PORT=587
-            - MAIL_ENV_FROM_ADDR=clemente.neto@
+            - MAIL_ENV_FROM_ADDR=e-mail@
             - MAIL_ENV_FROM_NAME="Sistema de Inventário"
             - MAIL_ENV_ENCRYPTION=tcp
-            - MAIL_ENV_USERNAME=clemente.neto@
+            - MAIL_ENV_USERNAME=e-mail@
             - MAIL_ENV_PASSWORD=password
             - DB_CONNECTION=mysql
             - DB_HOST=sagzdb
@@ -27,23 +27,23 @@ services:
             - APP_TIMEZONE=America/Sao_Paulo
             - APP_KEY=base64:1/t3C1akUvdu8Iat+1tGVLfdXY1Sjn5zpc4nhPKxAQ8=
         links:
-            - sagzdb
+            - tuxdb
         ports:
             - "80:80"
         volumes:
             - /var/lib/docker/volumes/sagp-web-vol/:/var/lib/snipeit
     sagzdb:
         image: mysql:5.6
-        container_name: sagzdbPROD
-        hostname: sagzdb
+        container_name: tuxdbPROD
+        hostname: tuxdb
         restart: always
         environment:
             - MAIL_PORT_587_TCP_ADDR=smtp.gmail.com
             - MAIL_PORT_587_TCP_PORT=587
-            - MAIL_ENV_FROM_ADDR=clemente.neto@
+            - MAIL_ENV_FROM_ADDR=e-mail@
             - MAIL_ENV_FROM_NAME="Sistema de Inventário"
             - MAIL_ENV_ENCRYPTION=tcp
-            - MAIL_ENV_USERNAME=clemente.neto@
+            - MAIL_ENV_USERNAME=e-mail@
             - MAIL_ENV_PASSWORD=password
             - MYSQL_ROOT_PASSWORD=password
             - MYSQL_DATABASE=snipeit
