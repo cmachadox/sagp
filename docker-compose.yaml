@@ -1,7 +1,7 @@
 version: "3.3"
 
 services:
-    sagzweb:
+    tuxweb:
         image: snipe/snipe-it
         container_name: tuxwebPROD
         hostname: tuxweb
@@ -15,7 +15,7 @@ services:
             - MAIL_ENV_USERNAME=e-mail@
             - MAIL_ENV_PASSWORD=password
             - DB_CONNECTION=mysql
-            - DB_HOST=sagzdb
+            - DB_HOST=tuxdb
             - DB_DATABASE=snipeit
             - MYSQL_DATABASE=snipeit
             - MYSQL_USER=snipeit
@@ -31,8 +31,8 @@ services:
         ports:
             - "80:80"
         volumes:
-            - /var/lib/docker/volumes/sagp-web-vol/:/var/lib/snipeit
-    sagzdb:
+            - /var/lib/docker/volumes/tux-web-vol/:/var/lib/snipeit
+    tuxdb:
         image: mysql:5.6
         container_name: tuxdbPROD
         hostname: tuxdb
@@ -56,4 +56,4 @@ services:
         ports:
             - "32769:3306" 
         volumes:
-            - /var/lib/docker/volumes/saggpdatabase-vol/:/var/lib/mysql
+            - /var/lib/docker/volumes/tux-database-vol/:/var/lib/mysql
