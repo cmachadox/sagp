@@ -15,7 +15,7 @@ services:
             - MAIL_ENV_USERNAME=e-mail@
             - MAIL_ENV_PASSWORD=password
             - DB_CONNECTION=mysql
-            - DB_HOST=sagzdb
+            - DB_HOST=tuxdb
             - DB_DATABASE=snipeit
             - MYSQL_DATABASE=snipeit
             - MYSQL_USER=snipeit
